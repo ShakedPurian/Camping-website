@@ -67,9 +67,6 @@
         max-width: 100%;
         overflow-x: hidden;
     }
-    main{
-        width: 90%;
-    }
     
      /* NAVBAR */
     .nav{
@@ -390,7 +387,7 @@
         margin-bottom: 30px;
     }
     .home-text{
-        width: 60vw;
+        width: 70vw;
         margin: auto;
         text-align: center;
     }
