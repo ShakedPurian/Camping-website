@@ -1,0 +1,30 @@
+<% layout('layout/boilerplate') %>
+
+<div class="register-container">
+    <div class="register-form">
+        <h1>Register</h1>
+<form action="/campgrounds/register" method="POST">
+    <div>
+    <label for="email">Email:</label> <br>
+    <input type="email" id="email" placeholder="email" name="email" required>
+    </div>
+    <div>
+    <label for="username">Username:</label> <br>
+    <input type="text" id="username" placeholder="username" name="username" required>
+    </div>
+    <div>
+    <label for="username">Password:</label> <br>
+    <input type="password" id="password" placeholder="password" name="password" required minlength="6">
+    </div>
+
+    <button>register</button>
+</form>
+<hr>
+    <p>Already have an account?</p>
+    <a href="/campgrounds/login" id="log-in">Log In</a>
+    </div>
+    <div class="register-img">
+        <img id="register-img" src="https://images.unsplash.com/photo-1624923686627-514dd5e57bae?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80" alt="">
+    </div>
+
+</div>

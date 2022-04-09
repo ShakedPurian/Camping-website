@@ -1,0 +1,93 @@
+<% layout('layout/boilerplate') %>
+
+<div class="details-main">
+    <div class="details-sub">
+        <div class="details-img">
+            <% for(let img of campground.image) { %> 
+                <img class="details-img" src="<%= img.url %>" alt="">
+            <% } %> 
+        </div>
+        <div class="details-info">
+            <div class="info1">
+                <h1><%= campground.title %> </h1>
+            </div>
+            <div class="info2">
+                <p> <%= campground.location %> </p>
+                <p> <%= campground.description %> </p>
+                <p>Price per night: <%= campground.price %> $</p>
+            </div>
+            <div class="info3">
+                <% if (currentUser && campground.author.equals(currentUser._id)) { %> 
+                    <div class="details-buttons">
+                    <a href="/campgrounds/<%=campground._id %>/edit">edit camp details</a>
+                    <form action="/campgrounds/<%=campground._id%>?_method=DELETE" method="POST">
+                    <button>delete camp</button></form>
+                    </div>
+                <% } %>
+                   
+            </div>
+        </div>
+        <div id='map'></div>
+    </div>
+    <div class="reviews">
+        
+        <div id="add-review">
+            <h2>reviews</h2>
+            <% if (!currentUser) { %> 
+                <a class="review-login" href="/campgrounds/login">log in to add reviews</a>
+                
+            <% } else { %>
+                <div>
+                    <form class="add-review" action="/campgrounds/<%= campground._id%>/reviews" method="POST">
+                        <h3>Add a review:</h3>
+                        <div>
+                            <label for="body">review</label> <br>
+                            <textarea name="review[body]" id="body" cols="50" rows="3"></textarea>
+                        </div>
+                        <div>
+                            <label for="rating">rating</label> <br>
+                            <input type="range" max="5" min="1" name="review[rating]" id="rating">
+                        </div>
+                        <button>submit</button>
+                    </form>
+                </div>
+                <% } %>
+        </div>
+        <div id="reviews">
+            <% for (let review of campground.reviews) { %>
+                <div class="review">
+                    <% if (review.rating === 1){ %>
+                        <p>&starf; &#10032; &#10032; &#10032; &#10032;</p>
+                    <% } %>
+                    <% if (review.rating === 2){ %>
+                        <p>&starf; &starf; &#10032; &#10032; &#10032;</p>
+                    <% } %>
+                    <% if (review.rating === 3){ %>
+                        <p>&starf; &starf; &starf; &#10032; &#10032;</p>
+                    <% } %>
+                    <% if (review.rating === 4){ %>
+                        <p>&starf; &starf; &starf; &starf; &#10032;</p>
+                    <% } %>
+                    <% if (review.rating === 5){ %>
+                        <p>&starf; &starf; &starf; &starf; &starf;</p>
+                    <% } %>
+                    <p><%= review.body %> </p>
+                </div>
+            <%} %>
+        </div>
+        
+    </div>
+</div>
+    
+
+    <script>
+        const campground= <%-JSON.stringify(campground)%>; //to access the campground variable
+        mapboxgl.accessToken = '<%= process.env.MAPBOX_TOKEN %>';
+        const map = new mapboxgl.Map({
+            container: 'map', // container ID
+            style: 'mapbox://styles/mapbox/streets-v11', // style URL
+            center: campground.geometry.coordinates, //[-74.5, 40], // starting position [lng, lat]
+            zoom: 11 // starting zoom
+        });
+        new mapboxgl.Marker().setLngLat(campground.geometry.coordinates).addTo(map); //to add a pin marker on the map
+        </script>

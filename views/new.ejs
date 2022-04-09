@@ -1,0 +1,35 @@
+<% layout('layout/boilerplate') %>
+
+<div class="register-container">
+    <div class="register-form">
+        <h1>New Campground</h1>
+    <form action="/campgrounds" method="POST" enctype="multipart/form-data">
+        <div>
+            <label for="title">camp name: </label> <br>
+            <input type="text" id="title" name="campground[title]" required>
+        </div>
+        <div>
+            <label for="location">camp location: </label> <br>
+            <input type="text" id="location" name="campground[location]" required>
+        </div>
+        <div>
+            <label for="description">camp description: </label> <br>
+            <input type="text" id="description" name="campground[description]" required>
+        </div>
+        <div>
+            <label for="price">camp price per night: </label> <br>
+            <input type="text" id="price" name="campground[price]" required>
+        </div>
+        <div>
+            <label for="image">camp image: </label> <br>
+            <input type="file" id="image" name="campground[image]" required>
+        </div>
+        <button>add campground</button>
+    </form>
+    </div>
+    <div class="register-img">
+        <img id="register-img" src="https://images.unsplash.com/photo-1613487700156-bbde37f69132?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=416&q=80" alt="">
+    </div>
+
+</div>
+

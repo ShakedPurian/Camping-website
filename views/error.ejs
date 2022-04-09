@@ -1,0 +1,10 @@
+<% layout('layout/boilerplate') %>
+
+<div class="err-container">
+  <img class="err-img" src="https://images.unsplash.com/photo-1515444744559-7be63e1600de?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="">
+  <div class="err">
+    <h4> <%= err.statusCode %> ERROR</h4>
+    <p><%=err.message%></p>
+    <a href="/">Back to home page</a>
+  </div>
+</div>
