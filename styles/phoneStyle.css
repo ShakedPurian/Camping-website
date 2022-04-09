@@ -67,6 +67,9 @@
         max-width: 100%;
         overflow-x: hidden;
     }
+    main{
+        width: 90%;
+    }
     
      /* NAVBAR */
     .nav{
