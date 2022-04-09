@@ -360,14 +360,14 @@ html, body {
     
 }
 .home-title h1{
-    font-size: 50px;
+    font-size: 80px;
     text-align: center;
     font-family: 'Caveat', cursive;
     font-weight: 800;
     margin-bottom: 0;
 }
 .home-title h2{
-    font-size: 20px;
+    font-size: 35px;
     text-align: center;
     font-family: 'Caveat', cursive;
     margin-top: 0;
