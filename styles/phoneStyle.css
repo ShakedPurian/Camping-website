@@ -413,15 +413,16 @@
     }
     .contact-info h1{
         font-size: 22px;
-        margin: 0;
+        margin-top: 5px;
     }
     .contact-info h2{
         font-size: 18px;
         margin: 0;
     }
-    .contact-info h2{
+    .contact-info p{
         font-size: 18px;
-        margin: 0;
+        margin-top: 5px;
+        margin-bottom: 5px;
     }
     .contact-info h3{
         font-size: 15px;
